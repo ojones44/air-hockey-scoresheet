@@ -34,7 +34,7 @@ function AddNewResult({
 	async function handleSubmit(e) {
 		e.preventDefault();
 
-		await fetch('http://localhost:5000/api/results/add', {
+		await fetch('https://airhockey-api.onrender.com/api/results/add', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(inputs),

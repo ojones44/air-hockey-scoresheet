@@ -18,7 +18,9 @@ function App() {
 	const [message, setMessage] = useState(null);
 
 	async function getResults() {
-		const response = await fetch('http://localhost:5000/api/results/');
+		const response = await fetch(
+			'https://airhockey-api.onrender.com/api/results/'
+		);
 		const data = await response.json();
 
 		const francesTotal = data.reduce((total, result) => {
@@ -66,7 +68,9 @@ function App() {
 		<main className=''>
 			<section className='header-section white-border blur-10'>
 				<h1 className='heading'>{`AIR HOCKEY CHAMPIONSHIP ${date}`}</h1>
-				<h3 className='message'>{`${message}`}</h3>
+				<h3 className='message'>{`${
+					isLoading ? 'WHO IS WINNING? 🤔' : message
+				}`}</h3>
 			</section>
 			<section className='scorecard'>
 				<div className='score white-border blur-3 frances'>

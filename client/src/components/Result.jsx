@@ -4,9 +4,12 @@ function Result({
 	toggleModal,
 }) {
 	async function deleteData() {
-		await fetch(`http://localhost:5000/api/results/delete/${_id}`, {
-			method: 'DELETE',
-		});
+		await fetch(
+			`https://airhockey-api.onrender.com/api/results/delete/${_id}`,
+			{
+				method: 'DELETE',
+			}
+		);
 
 		setReRender(true);
 		toggleModal();
