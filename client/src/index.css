@@ -253,6 +253,10 @@ input[type='date'] {
 	inset: 1rem;
 }
 
+.submit-button {
+	background-color: transparent;
+}
+
 .modal .submit-button:hover {
 	border-color: hsl(120, 88%, 54%);
 	color: hsl(120, 88%, 54%);
@@ -364,4 +368,9 @@ input[type='date'] {
 	body {
 		overflow-y: scroll;
 	}
+}
+
+@viewport {
+	width: device-width;
+	zoom: 1;
 }
