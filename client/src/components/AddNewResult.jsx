@@ -40,7 +40,7 @@ function AddNewResult({
 			setValue(new Date());
 			setInputs((prevValues) => ({
 				...prevValues,
-				date: 'DD/MM/YYYY',
+				date: new Date().toLocaleString('en-GB').split(',')[0],
 			}));
 			return;
 		}
@@ -48,7 +48,7 @@ function AddNewResult({
 		setValue(date);
 		setInputs((prevValues) => ({
 			...prevValues,
-			date: date.toLocaleString().split(',')[0],
+			date: date.toLocaleString('en-GB').split(',')[0],
 		}));
 
 		console.log(inputs);
