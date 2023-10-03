@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import DatePicker from 'react-date-picker';
 import urlStrings from '../utils/urlStrings';
 
 function AddNewResult({
@@ -15,21 +16,42 @@ function AddNewResult({
 
 	const dateRef = useRef();
 	const [inputs, setInputs] = useState(initialState);
+	const [value, setValue] = useState(new Date());
 
 	function handleChange(e) {
-		let formattedDate;
+		// let formattedDate;
 
-		if (e.target.name === 'date') {
-			const newFormat = e.target.value.split('-');
-			formattedDate = `${newFormat[2]}/${newFormat[1]}/${newFormat[0]}`;
-		}
+		// if (e.target.name === 'date') {
+		// 	const newFormat = e.target.value.split('-');
+		// 	formattedDate = `${newFormat[2]}/${newFormat[1]}/${newFormat[0]}`;
+		// }
 
-		e.preventDefault();
+		// e.target.name === 'date' ? formattedDate :
+		// date ? e.toLocaleString().split(',')[0] :
+
 		setInputs((prevValues) => ({
 			...prevValues,
-			[e.target.name]:
-				e.target.name === 'date' ? formattedDate : e.target.value,
+			[e.target.name]: e.target.value,
 		}));
+	}
+
+	function handleDateChange(date) {
+		if (!date) {
+			setValue(new Date());
+			setInputs((prevValues) => ({
+				...prevValues,
+				date: 'DD/MM/YYYY',
+			}));
+			return;
+		}
+
+		setValue(date);
+		setInputs((prevValues) => ({
+			...prevValues,
+			date: date.toLocaleString().split(',')[0],
+		}));
+
+		console.log(inputs);
 	}
 
 	async function handleSubmit(e) {
@@ -57,9 +79,17 @@ function AddNewResult({
 				</button>
 			</div>
 			<form className='add-result-form' onSubmit={handleSubmit}>
+				<label htmlFor='date'>Date:</label>
+
 				<div>
-					<label htmlFor='date'>Date:</label>
-					<div className='date-container'>
+					<DatePicker
+						onChange={handleDateChange}
+						value={value}
+						format='dd/MM/y'
+					/>
+				</div>
+
+				{/* <div className='date-container'>
 						<input
 							type='date'
 							id='date'
@@ -70,8 +100,7 @@ function AddNewResult({
 						/>
 						<p>{inputs.date}</p>
 						<p onClick={() => dateRef.current.showPicker()}>🗓️</p>
-					</div>
-				</div>
+					</div> */}
 
 				<div>
 					<label htmlFor='frances'>Frances Score:</label>

@@ -81,11 +81,19 @@ function App() {
 					</div>
 				</div>
 				<div className='centre-section'>
-					<button type='button' onClick={toggleViewResultModal}>
+					<button
+						type='button'
+						className='btn-light'
+						onClick={toggleViewResultModal}
+					>
 						View Results
 					</button>
 					<h1>Vs.</h1>
-					<button type='button' onClick={toggleAddResultModal}>
+					<button
+						type='button'
+						className='btn-light'
+						onClick={toggleAddResultModal}
+					>
 						Add New Result
 					</button>
 				</div>

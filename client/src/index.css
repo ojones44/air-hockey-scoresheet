@@ -28,7 +28,6 @@
 	line-height: var(--line-height);
 	font-weight: var(--fw-400);
 
-	color-scheme: light dark;
 	background-image: url(assets/gdansk.jpg);
 	background-size: cover;
 	font-synthesis: none;
@@ -45,7 +44,7 @@ a {
 }
 
 body {
-	color: var(--clr-accent);
+	color: var(--clr-accent-light);
 	box-sizing: border-box;
 	text-align: center;
 	padding: 1rem;
@@ -109,11 +108,11 @@ form {
 form input {
 	background-color: var(--clr-accent-light);
 	color: var(--fc-main);
-	width: 100%;
+	width: 200px;
 	padding: 1rem 0.5rem;
 	border: 2px solid var(--clr-accent-dark);
 	border-radius: 4px;
-	margin-top: 1rem;
+	/* margin-top: 1rem; */
 }
 
 input:active,
@@ -255,6 +254,7 @@ input[type='date'] {
 
 .submit-button {
 	background-color: transparent;
+	color: var(--clr-accent-light);
 }
 
 .modal .submit-button:hover {
@@ -271,14 +271,13 @@ input[type='date'] {
 	width: 200px;
 }
 
-.add-result-form button {
+/* .add-result-form button {
 	flex: 1;
 }
 
 .add-result-form div {
 	width: 100%;
-	min-width: 100%;
-}
+} */
 
 .centre-section {
 	padding: 2rem;
@@ -352,6 +351,27 @@ input[type='date'] {
 
 .date-container:last-child {
 	cursor: pointer;
+}
+
+.btn-light {
+	color: var(--clr-accent-light);
+}
+
+.react-calendar__month-view__weekdays {
+	color: black;
+}
+
+.react-date-picker {
+	background-color: white;
+	color: black;
+	border: 2px solid black;
+	border-radius: 4px;
+	width: 220px;
+}
+
+.react-date-picker__wrapper {
+	border-color: transparent !important;
+	padding: 0.5rem 0.5rem;
 }
 
 /* Media Queries */
