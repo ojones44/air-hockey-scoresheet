@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import francesImg from './assets/frances.jpg';
 import oliImg from './assets/oli.jpg';
+import urlStrings from './utils/urlStrings';
 
 import Results from './components/Results';
 import AddNewResult from './components/AddNewResult';
@@ -18,9 +19,7 @@ function App() {
 	const [message, setMessage] = useState(null);
 
 	async function getResults() {
-		const response = await fetch(
-			'https://airhockey-api.onrender.com/api/results/'
-		);
+		const response = await fetch(`${urlStrings.render}/api/results/`);
 		const data = await response.json();
 
 		const francesTotal = data.reduce((total, result) => {

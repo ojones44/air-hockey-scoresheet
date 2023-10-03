@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import urlStrings from '../utils/urlStrings';
 
 function AddNewResult({
 	toggleModal,
@@ -34,7 +35,7 @@ function AddNewResult({
 	async function handleSubmit(e) {
 		e.preventDefault();
 
-		await fetch('https://airhockey-api.onrender.com/api/results/add', {
+		await fetch(`${urlStrings.render}/api/results/add`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(inputs),

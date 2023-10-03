@@ -1,15 +1,14 @@
+import urlStrings from '../utils/urlStrings';
+
 function Result({
 	result: { _id, date, frances, oli },
 	setReRender,
 	toggleModal,
 }) {
 	async function deleteData() {
-		await fetch(
-			`https://airhockey-api.onrender.com/api/results/delete/${_id}`,
-			{
-				method: 'DELETE',
-			}
-		);
+		await fetch(`${urlStrings.render}/api/results/delete/${_id}`, {
+			method: 'DELETE',
+		});
 
 		setReRender(true);
 		toggleModal();
