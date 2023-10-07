@@ -9,7 +9,7 @@ function AddNewResult({
 	setNewResult,
 }) {
 	const initialState = {
-		date: 'DD/MM/YYYY',
+		date: new Date().toLocaleString('en-GB').split(',')[0],
 		frances: '',
 		oli: '',
 	};
